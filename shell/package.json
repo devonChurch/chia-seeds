@@ -4,8 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
+    "deploy": "npx http-server ./dist --port=3001 --cors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "^5.0.0-beta.23",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "single-spa": "^5.5.5"
+  }
 }
