@@ -28,6 +28,7 @@ module.exports = {
       remotes: {
         fileLibrary: 'fileLibrary',
         navigation: 'navigation',
+        dashboard: 'dashboard',
       },
       shared: []
     }),

@@ -7,9 +7,16 @@ registerApplication(
 );
 
 registerApplication(
-  'app-shell',
+  'file-library-file-explorer',
   () => import('fileLibrary/FileExplorer'),
-  location => location.pathname.startsWith('/')
+  location => location.pathname.startsWith('/library')
+
+);
+
+registerApplication(
+  'dashboard-landing-page',
+  () => import('dashboard/LandingPage'),
+  location => location.pathname === '/'
 
 );
 
