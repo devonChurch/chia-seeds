@@ -17,6 +17,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
+    "single-spa": "^5.5.5",
     "single-spa-vue": "^1.8.2",
     "vue": "^2.6.11"
   }

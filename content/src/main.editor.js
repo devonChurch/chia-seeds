@@ -8,6 +8,7 @@ const vueLifecycles = singleSpaVue({
     render: (h) => h(App)
   },
 });
+
 export const bootstrap = vueLifecycles.bootstrap;
 export const mount = vueLifecycles.mount;
 export const unmount = vueLifecycles.unmount;
