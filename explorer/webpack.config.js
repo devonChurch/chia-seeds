@@ -2,7 +2,7 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = {
-  entry: "./src/main",
+  entry: "./src/main.file",
 
   mode: "development",
 
@@ -32,14 +32,14 @@ module.exports = {
     new VueLoaderPlugin(),
 
     new ModuleFederationPlugin({
-        name: 'fileLibrary',
-        library: { type: 'var', name: 'fileLibrary' },
+        name: 'explorer',
+        library: { type: 'var', name: 'explorer' },
         filename: 'remoteEntry.js',
         remotes: {
           shell: 'shell',
         },
         exposes: {
-            './FileExplorer': './src/main'
+            './File': './src/main.file'
         },
         shared: []
       }),

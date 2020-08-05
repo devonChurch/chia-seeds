@@ -37,7 +37,7 @@ module.exports = {
         filename: 'remoteEntry.js',
         remotes: {
           shell: 'shell',
-          fileLibrary: 'fileLibrary',
+          explorer: 'explorer',
         },
         exposes: {
             './Editor': './src/main.editor',

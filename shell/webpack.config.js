@@ -26,7 +26,7 @@ module.exports = {
       library: { type: 'var', name: 'shell' },
       filename: 'remoteEntry.js',
       remotes: {
-        fileLibrary: 'fileLibrary',
+        explorer: 'explorer',
         navigation: 'navigation',
         dashboard: 'dashboard',
         content: 'content',

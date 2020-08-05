@@ -8,8 +8,8 @@ registerApplication({
 });
 
 registerApplication({
-    name: "file-library-file-explorer",
-    app: () => import("fileLibrary/FileExplorer"),
+    name: "explorer-file",
+    app: () => import("explorer/File"),
     activeWhen: (location) => location.pathname.startsWith("/library"),
     customProps: {}
 });
