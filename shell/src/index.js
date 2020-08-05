@@ -1,33 +1,38 @@
 import { registerApplication, start } from "single-spa";
 
-registerApplication(
-  "navigation-header",
-  () => import("navigation/NavigationHeader"),
-  (location) => location.pathname.startsWith("/")
-);
+registerApplication({
+    name: "navigation-header",
+    app: () => import("navigation/NavigationHeader"),
+    activeWhen: (location) => location.pathname.startsWith("/"),
+    customProps: {}
+});
 
-registerApplication(
-  "file-library-file-explorer",
-  () => import("fileLibrary/FileExplorer"),
-  (location) => location.pathname.startsWith("/library")
-);
+registerApplication({
+    name: "file-library-file-explorer",
+    app: () => import("fileLibrary/FileExplorer"),
+    activeWhen: (location) => location.pathname.startsWith("/library"),
+    customProps: {}
+});
 
-registerApplication(
-  "dashboard-landing-page",
-  () => import("dashboard/LandingPage"),
-  (location) => location.pathname === "/"
-);
+registerApplication({
+    name: "dashboard-landing-page",
+    app: () => import("dashboard/LandingPage"),
+    activeWhen: (location) => location.pathname === "/",
+    customProps: {}
+});
 
-registerApplication(
-  "content-preview",
-  () => import("content/Preview"),
-  (location) => location.pathname.startsWith("/preview")
-);
+registerApplication({
+    name: "content-preview",
+    app: () => import("content/Preview"),
+    activeWhen: (location) => location.pathname.startsWith("/preview"),
+    customProps: {}
+});
 
-registerApplication(
-  "content-editor",
-  () => import("content/Editor"),
-  (location) => location.pathname.startsWith("/editor")
-);
+registerApplication({
+    name: "content-editor",
+    app: () => import("content/Editor"),
+    activeWhen: (location) => location.pathname.startsWith("/editor"),
+    customProps: {}
+});
 
 start();
