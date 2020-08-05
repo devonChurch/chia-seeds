@@ -29,6 +29,7 @@ module.exports = {
         fileLibrary: 'fileLibrary',
         navigation: 'navigation',
         dashboard: 'dashboard',
+        content: 'content',
       },
       shared: []
     }),
