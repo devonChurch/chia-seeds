@@ -1,19 +1,19 @@
 <script>
 import { mountRootParcel } from 'single-spa';
-const Library = () => import('fileLibrary/FileExplorer');
+const FileExplorer = () => import('fileLibrary/FileExplorer');
 
 export default {
-    mounted() {
+    async mounted() {
         const parcelProps = {
             domElement: document.getElementById('file-library-media-picker')
         };
-
-        Library().then((parcelConfig) => {
-            mountRootParcel(parcelConfig, parcelProps)
-        })
+        const parcelConfig = await FileExplorer();
+        this.fileExplorerParcel = mountRootParcel(parcelConfig, parcelProps);
+    },
+    async beforeDestroy() {
+        await this.fileExplorerParcel.unmount();
     }
 }
-
 </script>
 
 <template>
