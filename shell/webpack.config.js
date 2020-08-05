@@ -27,6 +27,7 @@ module.exports = {
       filename: 'remoteEntry.js',
       remotes: {
         fileLibrary: 'fileLibrary',
+        navigation: 'navigation',
       },
       shared: []
     }),

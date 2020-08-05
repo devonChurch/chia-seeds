@@ -1,0 +1,23 @@
+{
+  "name": "navigation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "deploy": "npx http-server ./dist --port=3003 --cors",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vue-loader": "^15.9.3",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^5.0.0-beta.23",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "single-spa-vue": "^1.8.2",
+    "vue": "^2.6.11"
+  }
+}

@@ -13,7 +13,7 @@ module.exports = {
   },
 
   output: {
-    publicPath: "http://localhost:3002/",
+    publicPath: "http://localhost:3003/",
   },
 
   resolve: {
@@ -32,14 +32,14 @@ module.exports = {
     new VueLoaderPlugin(),
 
     new ModuleFederationPlugin({
-        name: 'fileLibrary',
-        library: { type: 'var', name: 'fileLibrary' },
+        name: 'navigation',
+        library: { type: 'var', name: 'navigation' },
         filename: 'remoteEntry.js',
         remotes: {
           shell: 'shell',
         },
         exposes: {
-            './FileExplorer': './src/main'
+            './NavigationHeader': './src/main'
         },
         shared: []
       }),
