@@ -2,7 +2,7 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = {
-  entry: "./src/main.file",
+  entry: ["./src/main.file", "./src/main.media"],
 
   mode: "development",
 
@@ -39,7 +39,8 @@ module.exports = {
           shell: 'shell',
         },
         exposes: {
-            './File': './src/main.file'
+            './File': './src/main.file',
+            './Media': './src/main.media'
         },
         shared: []
       }),

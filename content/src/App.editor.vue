@@ -1,17 +1,17 @@
 <script>
 import { mountRootParcel } from 'single-spa';
-const ExplorerFile = () => import('explorer/File');
+const ExplorerMedia = () => import('explorer/Media');
 
 export default {
     async mounted() {
         const parcelProps = {
-            domElement: document.getElementById('single-spa-parcel:explorer-file')
+            domElement: document.getElementById('single-spa-parcel:explorer-media')
         };
-        const parcelConfig = await ExplorerFile();
-        this.explorerFileParcel = mountRootParcel(parcelConfig, parcelProps);
+        const parcelConfig = await ExplorerMedia();
+        this.explorerMediaParcel = mountRootParcel(parcelConfig, parcelProps);
     },
     async beforeDestroy() {
-        await this.explorerFileParcel.unmount();
+        await this.explorerMediaParcel.unmount();
     }
 }
 </script>
@@ -19,6 +19,6 @@ export default {
 <template>
     <div>
         <h2>Vue | Content Editor (Dashboard)</h2>
-        <div id="single-spa-parcel:explorer-file"></div>
+        <div id="single-spa-parcel:explorer-media"></div>
     </div>
 </template>
