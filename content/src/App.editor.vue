@@ -5,7 +5,9 @@ const ExplorerMedia = () => import('explorer/Media');
 export default {
     async mounted() {
         const domElement = this.$refs[this.explorerMediaParcel];
-        const parcelProps = { domElement };
+        const potato = () => console.log('POTATO!!!!');
+        const apple = "APPLE!!!";
+        const parcelProps = { domElement, potato, apple };
         const parcelConfig = await ExplorerMedia();
         this.explorerMediaParcel = mountRootParcel(parcelConfig, parcelProps);
     },
