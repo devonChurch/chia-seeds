@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "deploy": "npx http-server ./dist --port=3001 --cors",
+    "deploy": "npx http-server ./dist --port=3001 --cors --proxy http://localhost:3001?",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
