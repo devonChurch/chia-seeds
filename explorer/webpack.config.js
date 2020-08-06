@@ -42,7 +42,7 @@ module.exports = {
             './File': './src/main.file',
             './Media': './src/main.media'
         },
-        shared: []
+        shared: ["single-spa-vue", "vue"]
       }),
   ],
 };

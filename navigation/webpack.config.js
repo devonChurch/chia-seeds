@@ -41,7 +41,7 @@ module.exports = {
         exposes: {
             './NavigationHeader': './src/main'
         },
-        shared: []
+        shared: ["single-spa-vue", "vue"]
       }),
   ],
 };

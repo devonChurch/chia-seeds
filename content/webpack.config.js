@@ -43,7 +43,7 @@ module.exports = {
             './Editor': './src/main.editor',
             './Preview': './src/main.preview'
         },
-        shared: []
+        shared: ["single-spa", "single-spa-vue", "vue"]
       }),
   ],
 };
