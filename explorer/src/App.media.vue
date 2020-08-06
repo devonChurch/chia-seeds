@@ -4,10 +4,7 @@ export default {
         console.log('Explorer (Media) | beforeMount');
     },
     mounted() {
-        console.log('Explorer (Media) | mounted', this);
-        console.log(this.$root);
-        console.log(this.$root?.potato());
-        console.log(this.$root?.apple);
+        console.log('Explorer (Media) | mounted');
     },
     beforeDestroy() {
         console.log('Explorer (Media) | beforeDestroy');
@@ -15,10 +12,27 @@ export default {
     destroyed() {
         console.log('Explorer (Media) | destroyed');
     },
+    data: function() {
+        return {
+            mediaItems: ["🍎", "🍌", "🥔"]
+        }
+    },
+    methods: {
+        selectMediaItem(item) {
+            this.$root.addMediaItem(item);
+        }
+    }
 }
 </script>
 
 
 <template>
-    <h2>Vue | Media (Explorer)</h2>
+    <div>
+        <h2>Vue | Media (Explorer)</h2>
+        <ul v-if="mediaItems.length">
+            <li v-for="(item, index) in mediaItems" :key="index">
+                <button type="button" @click="selectMediaItem(item)">{{ item }}</button>
+            </li>
+        </ul>
+    </div>
 </template>
