@@ -23,6 +23,13 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ],
+      },
+      {
         test: /\.vue$/,
         loader: "vue-loader",
       },
@@ -41,7 +48,7 @@ module.exports = {
         exposes: {
             './LandingPage': './src/main'
         },
-        shared: ["single-spa-vue", "vue"]
+        shared: ["single-spa-vue", "vue", "normalize.css"]
       }),
   ],
 };
