@@ -1,37 +1,45 @@
 import { registerApplication, start } from "single-spa";
+import { testActiveStatus, is, isNot } from "./utils";
+
+const contentPreview = /^\/library\/.*\/preview/;
+const contentEditor = /^\/editor\//
+const explorerFile = /^\/library\//;
+const dashboard = /^\/$/; // Start and End with a single slash "/".
+const isolationLayout = [contentPreview];
+const standardLayout = [explorerFile, dashboard, contentEditor];
 
 registerApplication({
     name: "navigation-header",
     app: () => import("navigation/NavigationHeader"),
-    activeWhen: (location) => location.pathname.startsWith("/"),
+    activeWhen: testActiveStatus(isNot(isolationLayout)),
     customProps: {}
 });
 
 registerApplication({
     name: "explorer-file",
     app: () => import("explorer/File"),
-    activeWhen: (location) => location.pathname.startsWith("/library"),
+    activeWhen: testActiveStatus([is(explorerFile), isNot(isolationLayout)]),
     customProps: {}
 });
 
 registerApplication({
     name: "dashboard-landing-page",
     app: () => import("dashboard/LandingPage"),
-    activeWhen: (location) => location.pathname === "/",
+    activeWhen: testActiveStatus(is(dashboard)),
     customProps: {}
 });
 
 registerApplication({
     name: "content-preview",
     app: () => import("content/Preview"),
-    activeWhen: (location) => location.pathname.startsWith("/preview"),
+    activeWhen: testActiveStatus(is(contentPreview)),
     customProps: {}
 });
 
 registerApplication({
     name: "content-editor",
     app: () => import("content/Editor"),
-    activeWhen: (location) => location.pathname.startsWith("/editor"),
+    activeWhen: testActiveStatus([is(contentEditor), isNot(isolationLayout)]),
     customProps: {}
 });
 
