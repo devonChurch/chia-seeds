@@ -27,7 +27,7 @@ export default {}
     padding: 1rem;
     grid-gap: 1rem;
     grid-template-columns: 300px 1fr;
-    grid-template-rows: 5rem 1rem;
+    grid-template-rows: 5rem 1fr;
     font-family: sans-serif;
     font-weight: bold;
 
