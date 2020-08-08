@@ -8,6 +8,12 @@ const dashboard = /^\/$/; // Start and End with a single slash "/".
 const isolationLayout = [contentPreview];
 const standardLayout = [explorerFile, dashboard, contentEditor];
 
+
+window.addEventListener('single-spa:before-mount-routing-event', (event) => {
+    Object.entries(event.detail.newAppStatuses).forEach(([key, value]) => 
+        document.body.setAttribute(`data-${key}`, value))
+});
+
 registerApplication({
     name: "navigation-header",
     app: () => import("navigation/NavigationHeader"),
@@ -39,7 +45,7 @@ registerApplication({
 registerApplication({
     name: "content-editor",
     app: () => import("content/Editor"),
-    activeWhen: testActiveStatus([is(contentEditor), isNot(isolationLayout)]),
+    activeWhen: testActiveStatus([is(contentEditor)]),
     customProps: {}
 });
 
