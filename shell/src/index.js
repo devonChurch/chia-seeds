@@ -16,7 +16,7 @@ window.addEventListener('single-spa:before-mount-routing-event', (event) => {
 
 registerApplication({
     name: "navigation-header",
-    app: () => import("navigation/NavigationHeader"),
+    app: () => import("navigation/Header"),
     activeWhen: testActiveStatus(isNot(isolationLayout)),
     customProps: {}
 });

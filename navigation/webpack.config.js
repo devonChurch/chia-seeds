@@ -46,9 +46,9 @@ module.exports = {
           shell: 'shell',
         },
         exposes: {
-            './NavigationHeader': './src/main'
+            './Header': './src/main'
         },
-        shared: ["single-spa-vue", "vue", "normalize.css"]
+        shared: ["single-spa-vue", "vue", "vue-router", "normalize.css"]
       }),
   ],
 };
