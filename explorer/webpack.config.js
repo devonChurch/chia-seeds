@@ -23,6 +23,13 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ],
+      },
+      {
         test: /\.vue$/,
         loader: "vue-loader",
       },
@@ -42,7 +49,7 @@ module.exports = {
             './File': './src/main.file',
             './Media': './src/main.media'
         },
-        shared: ["single-spa-vue", "vue"]
+        shared: ["single-spa-vue", "vue", "vue-router", "normalize.css"]
       }),
   ],
 };
