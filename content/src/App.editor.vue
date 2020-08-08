@@ -77,6 +77,7 @@ export default {
     padding: 1rem;
     font-family: sans-serif;
     font-weight: bold;
+    grid-template-rows: 1fr 0px;
 }
 
 .content-editor__main {
