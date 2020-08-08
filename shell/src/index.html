@@ -6,8 +6,37 @@
     <script src="http://localhost:3003/remoteEntry.js"></script>
     <script src="http://localhost:3004/remoteEntry.js"></script>
     <script src="http://localhost:3005/remoteEntry.js"></script>
+    
+    <style>
+      .shell {}
+
+      .shell__layout {
+        display: grid;
+        min-height: 100vh;
+      }
+
+      .shell__layout--standard {
+        grid-template-columns: 300px 1fr;
+        grid-template-rows: 1fr;
+      }
+
+      .shell__layout--standard .shell__application > * {
+        min-height: 100vh;
+      }
+
+      .shell__application {
+        display: grid;
+      }
+    </style>
   </head>
-  <body>
-    <div id="single-spa-application:navigation-header"></div>
+  <body class="shell">
+    <div class="shell__layout shell__layout--standard">
+      <div id="single-spa-application:navigation-header" class="shell__application"></div>
+      <div>
+        <div id="single-spa-application:explorer-file" class="shell__application"></div>
+        <div id="single-spa-application:dashboard-landing-page" class="shell__application"></div>
+        <div id="single-spa-application:content-editor" class="shell__application"></div>
+      </div>
+    </div>
   </body>
 </html>
