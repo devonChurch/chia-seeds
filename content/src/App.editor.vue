@@ -1,5 +1,10 @@
 <script>
-import { mountRootParcel } from 'single-spa';
+// if dev...
+// import { mountRootParcel } from 'single-spa';
+// ... else if prod...
+const { mountRootParcel } = window.singleSpa;
+// ...
+
 const ExplorerMedia = () => import('explorer/Media');
 
 export default {
@@ -99,7 +104,7 @@ export default {
     right: 0;
     left: 0;
     bottom: 0;
-    padding: 20rem
+    padding: 10rem
 }
 
 .content-editor__link {

@@ -50,7 +50,7 @@ module.exports = {
             './Editor': './src/main.editor',
             './Preview': './src/main.preview'
         },
-        shared: ["single-spa", "single-spa-vue", "vue", "vue-router", "normalize.css"]
+        shared: ["single-spa-vue", "vue", "vue-router", "normalize.css"]
       }),
   ],
 };

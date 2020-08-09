@@ -1,6 +1,9 @@
-import { registerApplication, start } from "single-spa";
+import * as singleSpa from "single-spa";
 import { testActiveStatus, is, isNot } from "./utils";
 
+window.singleSpa = singleSpa;
+
+const { registerApplication, start } = singleSpa;
 const contentPreview = /^\/library\/.*\/preview/;
 const contentEditor = /^\/editor\//
 const explorerFile = /^\/library\//;
