@@ -1,8 +1,6 @@
 import * as singleSpa from "single-spa";
 import { testActiveStatus, is, isNot } from "./utils";
 
-window.singleSpa = singleSpa;
-
 const { registerApplication, start } = singleSpa;
 const contentPreview = /^\/library\/.*\/preview/;
 const contentEditor = /^\/editor\//
@@ -21,35 +19,35 @@ registerApplication({
     name: "navigation-header",
     app: () => import("navigation/Header"),
     activeWhen: testActiveStatus(isNot(isolationLayout)),
-    customProps: {}
+    customProps: { singleSpa }
 });
 
 registerApplication({
     name: "explorer-file",
     app: () => import("explorer/File"),
     activeWhen: testActiveStatus([is(explorerFile), isNot(isolationLayout)]),
-    customProps: {}
+    customProps: { singleSpa }
 });
 
 registerApplication({
     name: "dashboard-landing-page",
     app: () => import("dashboard/LandingPage"),
     activeWhen: testActiveStatus(is(dashboard)),
-    customProps: {}
+    customProps: { singleSpa }
 });
 
 registerApplication({
     name: "content-preview",
     app: () => import("content/Preview"),
     activeWhen: testActiveStatus(is(contentPreview)),
-    customProps: {}
+    customProps: { singleSpa }
 });
 
 registerApplication({
     name: "content-editor",
     app: () => import("content/Editor"),
     activeWhen: testActiveStatus([is(contentEditor)]),
-    customProps: {}
+    customProps: { singleSpa }
 });
 
 start();

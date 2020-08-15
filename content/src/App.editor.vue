@@ -1,10 +1,4 @@
 <script>
-// if dev...
-// import { mountRootParcel } from 'single-spa';
-// ... else if prod...
-const { mountRootParcel } = window.singleSpa;
-// ...
-
 const ExplorerMedia = () => import('explorer/Media');
 
 export default {
@@ -35,10 +29,15 @@ export default {
             const domElement = this.$refs[this.explorerMediaParcelKey];
             const parcelProps = { domElement, addMediaItem: this.addMediaItem.bind(this) };
             const parcelConfig = await ExplorerMedia();
+            const { mountRootParcel } = this.$vnode.context.singleSpa;
             
             this.explorerMediaParcelInstance = mountRootParcel(parcelConfig, parcelProps);
         },
-    }
+    },
+
+  mounted() {
+    console.log("Content (Editor) | mounted", this);
+  },
 }
 </script>
 
