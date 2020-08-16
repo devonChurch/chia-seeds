@@ -1,24 +1,3 @@
-// export function hi() {
-//   alert(`Hello`);
-// }
-
-// export function bye() {
-//   alert(`Bye`);
-// }
-
-// export default function () {
-//   alert("Module loaded (export default)!");
-// }
-
-// const something = function() {
-//     console.log(someting)
-// };
-
-// export default something;
-
-// export const logUserIn = () => {};
-// export const logUserOut = () => {};
-
 import Vuex from 'vuex'
 
 const shellModule = {
@@ -39,36 +18,22 @@ const shellModule = {
             state.userName = state.userType = "";
         }
     },
-    getters: {
-
-    },
-    // actions:
+    getters: {},
+    actions: {},
 }
 
-
-
-// export default store = new Vuex.Store({
-//     modules: {
-//         shell: shellModule
-//     }
-// });
-
-// const createStore = () => new Vuex.Store({
-//     modules: {
-//         shell: shellModule
-//     }
-// });
 
 export const createStore = (() => {
     let store;
 
     return (Vue) => {
-        console.log('Creating store', Vue);
-
+        // Vuex MUST be called with the version of Vue associated to the current
+        // application instance requesting access to the store.
+        //
+        // Vuex MUST be called BEFORE the creation of the store.
         Vue.use(Vuex);
 
         if (!store) {
-            console.log('Creating BRAND NEW store');
             store = new Vuex.Store({
                 modules: { shell: shellModule }
             });

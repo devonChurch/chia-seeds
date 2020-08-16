@@ -18,12 +18,6 @@ window.addEventListener('single-spa:before-mount-routing-event', (event) => {
 registerApplication({
     name: "navigation-header",
     app: async () => import("navigation/Header"),
-    // app: async () => {
-    //     const Header = await import("navigation/Header");
-    //     console.log('Header', Header);
-    //     return Header;
-
-    // },
     activeWhen: testActiveStatus(isNot(isolationLayout)),
     customProps
 });
@@ -37,25 +31,11 @@ registerApplication({
 
 registerApplication({
     name: "dashboard-landing-page",
-    // app: () => import("dashboard/LandingPage").then(module => {
-    //     console.log('got dashboard #1', module);
-    //     return module;
-    // }).then(module => {
-    //     console.log('got dashboard #2', module);
-    //     return module;
-    // }),
     app: async () => {
-        const topLevelAwait = await import("dashboard/LandingPage");
-        console.log('topLevelAwait', topLevelAwait);
-        console.log('topLevelAwait.default', topLevelAwait.default);
-
-        return topLevelAwait.default;
-        
-        // const LandingPage = await topLevelAwait.default();
-        // console.log('LandingPage', LandingPage);
-        
-        // return LandingPage;
-
+        // The LandingPage returns a "top level await" so we need to extract the
+        // exported hooks from the `default` export.
+        const { default: LandingPage } = await import("dashboard/LandingPage");
+        return LandingPage;
     },
     activeWhen: testActiveStatus(is(dashboard)),
     customProps
