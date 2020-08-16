@@ -31,6 +31,9 @@ module.exports = {
         dashboard: 'dashboard',
         content: 'content',
       },
+      exposes: {
+        './store': './src/utilities/store'
+      },
       shared: []
     }),
     new HtmlWebpackPlugin({

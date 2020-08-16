@@ -51,4 +51,12 @@ module.exports = {
         shared: ["single-spa-vue", "vue", "normalize.css"]
       }),
   ],
+  experiments: {
+    // mjs: true,
+    // outputModule: true,
+    // syncWebAssembly: true,
+    topLevelAwait: true,
+    // asset: true,
+    // asyncWebAssembly: true,
+  },
 };

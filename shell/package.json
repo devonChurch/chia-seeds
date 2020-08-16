@@ -16,6 +16,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "single-spa": "^5.5.5"
+    "single-spa": "^5.5.5",
+    "vuex": "^3.5.1"
   }
 }

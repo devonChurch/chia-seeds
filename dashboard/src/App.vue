@@ -1,5 +1,15 @@
 <script>
-export default {}
+const shellStore = () => import('shell/store');
+
+export default {
+
+
+    async mounted() {
+        console.log("Dashboard (Landing Page) | mounted", this);
+        // const everything = await shellStore();
+        // console.log('async import', everything);
+    },
+}
 </script>
 
 <template>
