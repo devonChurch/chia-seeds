@@ -62,8 +62,13 @@ const shellModule = {
 export const createStore = (() => {
     let store;
 
-    return () => {
+    return (Vue) => {
+        console.log('Creating store', Vue);
+
+        Vue.use(Vuex);
+
         if (!store) {
+            console.log('Creating BRAND NEW store');
             store = new Vuex.Store({
                 modules: { shell: shellModule }
             });

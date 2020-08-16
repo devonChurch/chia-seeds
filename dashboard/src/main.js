@@ -5,8 +5,8 @@ import App from './App.vue';
 
 // const shellStore = () => import('shell/store');
 
-const { createStore } = await import('shell/store');
-console.log(shellStore);
+// const { createStore } = await import('shell/store');
+// console.log(shellStore);
 
 // shellStore.then(module => console.log(module))
 
@@ -45,35 +45,38 @@ console.log(shellStore);
 
 
 
-Vue.use(Vuex)
+// Vue.use(Vuex)
 
-const vueLifecycles = singleSpaVue({
-  Vue,
-  appOptions: {
-    render: (h) => h(App),
-    store: createStore()
-  },
-});
-
-export const bootstrap = vueLifecycles.bootstrap;
-export const mount = vueLifecycles.mount;
-export const unmount = vueLifecycles.unmount;
-
-
-// import('shell/store').then(module => {
-//   console.log(module);
-  
-//   Vue.use(Vuex);
-
-//   const vueLifecycles = singleSpaVue({
-//     Vue,
-//     appOptions: {
-//       render: (h) => h(App),
-//     },
-//   });
-
-//   export const bootstrap = vueLifecycles.bootstrap;
-//   export const mount = vueLifecycles.mount;
-//   export const unmount = vueLifecycles.unmount;
-
+// const vueLifecycles = singleSpaVue({
+//   Vue,
+//   appOptions: {
+//     render: (h) => h(App),
+//     store: createStore()
+//   },
 // });
+
+// export const bootstrap = vueLifecycles.bootstrap;
+// export const mount = vueLifecycles.mount;
+// export const unmount = vueLifecycles.unmount;
+
+
+export default import('shell/store').then(module => {
+  console.log('store | module', module);
+  console.log('store | module.createStore', module.createStore);
+  
+  // Vue.use(Vuex);
+
+  const vueLifecycles = singleSpaVue({
+    Vue,
+    appOptions: {
+      render: (h) => h(App),
+      store: module.createStore(Vue)
+    },
+  });
+
+  return {
+    bootstrap: vueLifecycles.bootstrap,
+    mount: vueLifecycles.mount,
+    unmount: vueLifecycles.unmount,
+  };
+});

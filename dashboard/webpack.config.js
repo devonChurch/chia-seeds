@@ -55,7 +55,7 @@ module.exports = {
     // mjs: true,
     // outputModule: true,
     // syncWebAssembly: true,
-    topLevelAwait: true,
+    // topLevelAwait: true,
     // asset: true,
     // asyncWebAssembly: true,
   },

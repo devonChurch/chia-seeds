@@ -17,12 +17,13 @@ window.addEventListener('single-spa:before-mount-routing-event', (event) => {
 
 registerApplication({
     name: "navigation-header",
-    app: async () => {
-        const Header = await import("navigation/Header");
-        console.log('Header', Header);
-        return Header;
+    app: async () => import("navigation/Header"),
+    // app: async () => {
+    //     const Header = await import("navigation/Header");
+    //     console.log('Header', Header);
+    //     return Header;
 
-    },
+    // },
     activeWhen: testActiveStatus(isNot(isolationLayout)),
     customProps
 });
